@@ -19,9 +19,9 @@
     },
     "SERVER_URL": {
       "description": "URL to connect to your Heroku instance (update with your app's name + PARSE_MOUNT)",
-      "value": "http://yourappname.herokuapp.com/parse"
+      "value": "http://pse-robin.herokuapp.com/1"
     }
   },
   "image": "heroku/nodejs",
-  "addons": ["mongolab"]
+  "addons": ["postgres"]
 }
