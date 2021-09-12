@@ -3,6 +3,7 @@
 
 const express = require('express');
 const ParseServer = require('parse-server').ParseServer;
+const ParseDashboard = require('parse-dashboard');
 const path = require('path');
 const args = process.argv || [];
 const test = args.some(arg => arg.includes('jasmine'));
@@ -58,6 +59,24 @@ if (!test) {
   // This will enable the Live Query real-time server
   ParseServer.createLiveQueryServer(httpServer);
 }
+
+const parseDashboard = new ParseDashboard({
+  apps: [
+    {
+      serverURL: process.env.SERVER_URL,
+      appId: process.env.APP_ID,
+      masterKey: process.env.MASTER_KEY,
+      appName:'Heroku Parse psql'
+    },
+  ],
+  users: [
+    {user: 'parse', pass: '$2a$12$XHzIm4HV5WYgVJn9SVSwu.C0mPRrU3reqlyBZ8iE6lRisaV/.xdoW'}
+  ],
+  useEncryptedPasswords: true,
+  trustProxy: 1
+});
+
+app.use('/dashboard', parseDashboard);
 
 module.exports = {
   app,
