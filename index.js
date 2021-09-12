@@ -60,24 +60,6 @@ if (!test) {
   ParseServer.createLiveQueryServer(httpServer);
 }
 
-const parseDashboard = new ParseDashboard({
-  apps: [
-    {
-      serverURL: process.env.SERVER_URL,
-      appId: process.env.APP_ID,
-      masterKey: process.env.MASTER_KEY,
-      appName:'Heroku Parse psql'
-    },
-  ],
-  users: [
-    {user: 'parse', pass: '$2a$12$XHzIm4HV5WYgVJn9SVSwu.C0mPRrU3reqlyBZ8iE6lRisaV/.xdoW'}
-  ],
-  useEncryptedPasswords: true,
-  trustProxy: 1
-});
-
-app.use('/dashboard', parseDashboard);
-
 module.exports = {
   app,
   config,
