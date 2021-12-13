@@ -15,7 +15,7 @@ Parse.Cloud.define('getShoeMake', () => {
 			out_data.push(
 	 { name:'Asics' 
 });
-   return {out_data };
+   return out_data;
 });
 
 Parse.Cloud.define('getShoeModel', () => {
@@ -23,12 +23,12 @@ Parse.Cloud.define('getShoeModel', () => {
 			out_data.push(
 	 { name:'Kayano 27'
 });
-  return {out_data };
+  return out_data;
 });
 
 Parse.Cloud.define('getShoeSize', () => {
   let out_data = [8,9,10,11];
-  return {out_data};
+  return out_data;
 });
 
 Parse.Cloud.define('getProfileInfo', async (request) => {
