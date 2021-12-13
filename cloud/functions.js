@@ -32,6 +32,33 @@ Parse.Cloud.define('getShoeSize', () => {
   return out_data;
 });
 
+Parse.Cloud.define('getPodInfo', req () => {
+  let macAddress = req.params.macAdress;
+  let out_data = [];
+  	out_data.push(
+	 { latestSecondsSince2000:0,
+	   upsId:''
+});
+  
+  return out_data;
+});
+
+Parse.Cloud.define('registerPod', req () => {
+  
+  let userId = req.params.userId;
+  let shoeId = req.params.shoeId;
+  let shoeSize = req.params.shoeSize;
+  let macAddress = req.params.macAdress;
+  let initialDistance = req.params.initialDistance;
+  //set these...
+  let out_data = [];
+  	out_data.push(
+	 { error:0
+});
+  
+  return out_data;
+});
+
 Parse.Cloud.define('getProfileInfo', async (request) => {
 	let userId = request.params.userId;
 	let query =  new Parse.Query(Parse.User); 
