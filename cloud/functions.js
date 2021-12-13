@@ -35,8 +35,8 @@ Parse.Cloud.define('getProfileTest', async (request) => {
 	let userId = request.params.userId;
 	let query =  new Parse.Query("User"); 
 	query.equalTo("objectId",userId);
-    //const results = await query.find();
-    //if(results.length === 0) throw new Error('No results found!');  
+    const results = await query.find();
+    if(results.length === 0) throw new Error('No results found!');  
     //let user = results[0];  
 	let out_data = [];
 	//out_data.push(
