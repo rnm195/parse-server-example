@@ -33,7 +33,7 @@ Parse.Cloud.define('getProfileInfo', async (request) => {
 
 Parse.Cloud.define('setProfileInfo', async (request) => {
 	let userId = request.params.userId;
-	let profileData = request.params.profileData;
+	let profileData = request.params.data;
 	let query =  new Parse.Query(Parse.User); 
 	query.equalTo("objectId",userId);
     const results = await query.find();
