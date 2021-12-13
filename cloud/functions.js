@@ -39,7 +39,7 @@ Parse.Cloud.define('setProfileInfo', async (request) => {
     const results = await query.find();
     if(results.length === 0) throw new Error('No results found!');  
     let user = results[0]; 
-	user.Set("profileData",profileData);
+	user.set("profileData",profileData);
 	let out_data = [];
 	out_data.push(
 	 { error:0,
