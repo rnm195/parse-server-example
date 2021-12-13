@@ -9,6 +9,10 @@ Parse.Cloud.define('asyncFunction', async req => {
   return 'Hi async';
 });
 
+Parse.Cloud.define('getShoeMake', () => {
+return {name:'Asics' };
+}
+
 Parse.Cloud.beforeSave('Test', () => {
   throw new Parse.Error(9001, 'Saving test objects is not available.');
 });
