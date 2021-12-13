@@ -16,7 +16,7 @@ Parse.Cloud.define('getShoeMake', () => {
 		im1._url = 'https://pse-robin.herokuapp.com/public/assets/images/asics-small.png';
 			out_data.push(
 	 { name:'Asics',
-	 image: im1}
+	 image: im1
 });
    return out_data;
 });
