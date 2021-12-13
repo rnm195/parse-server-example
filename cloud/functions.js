@@ -1,3 +1,4 @@
+
 Parse.Cloud.define('hello', req => {
   req.log.info(req);
   return 'Hi';
@@ -16,3 +17,4 @@ return {name:'Asics' };
 Parse.Cloud.beforeSave('Test', () => {
   throw new Parse.Error(9001, 'Saving test objects is not available.');
 });
+
