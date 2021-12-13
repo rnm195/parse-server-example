@@ -16,7 +16,7 @@ return {name:'Asics' };
 
 Parse.Cloud.define('getProfileInfo', async (request) => {
 	let userId = request.params.userId;
-	let query =  new Parse.Query("User"); 
+	let query =  new Parse.Query(Parse.User); 
 	query.equalTo("objectId",userId);
     const results = await query.find();
     if(results.length === 0) throw new Error('No results found!');  
@@ -33,7 +33,7 @@ Parse.Cloud.define('getProfileInfo', async (request) => {
 
 Parse.Cloud.define('getProfileTest', async (request) => {
 	let userId = request.params.userId;
-	let query =  new Parse.Query("User"); 
+	let query =  new Parse.Query(Parse.User"); 
 	query.equalTo("objectId",userId);
     let backs = await query.find();
     if(backs.length === 0) throw new Error('No results found!');  
