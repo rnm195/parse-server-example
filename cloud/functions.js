@@ -12,11 +12,9 @@ Parse.Cloud.define('asyncFunction', async req => {
 
 Parse.Cloud.define('getShoeMake', () => {
 		let out_data = [];
-		let im1 = new image;
-		im1._url = 'https://pse-robin.herokuapp.com/public/assets/images/asics-small.png';
 			out_data.push(
 	 { name:'Asics',
-	 image: im1
+	 image: { _url = 'https://pse-robin.herokuapp.com/public/assets/images/asics-small.png'} 
 });
    return out_data;
 });
