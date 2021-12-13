@@ -14,6 +14,15 @@ Parse.Cloud.define('getShoeMake', () => {
 return {name:'Asics' };
 });
 
+Parse.Cloud.define('getShoeModel', () => {
+return {name:'Kayano 27' };
+});
+
+Parse.Cloud.define('getShoeSize', () => {
+let out_data = [8,9,10,11];
+return {out_data};
+});
+
 Parse.Cloud.define('getProfileInfo', async (request) => {
 	let userId = request.params.userId;
 	let query =  new Parse.Query(Parse.User); 
@@ -82,6 +91,21 @@ Parse.Cloud.define('getUser', async (request) => {
     return out_data;
 },{
 	fields : ['userId']
+});
+
+Parse.Cloud.define('getUserStatistics', async (request) => {
+	let userId = request.params.userId;
+	let query =  new Parse.Query(Parse.User); 
+	query.equalTo("objectId",userId);
+    const results = await query.find();
+    if(results.length === 0) throw new Error('No results found!');  
+    let user = results[0];  
+	let out_data = [];
+	//out_data.push(
+	// { weight:user.get("weight"),
+	//   useMetric:user.get("useMetric")
+//});
+    return out_data;
 });
 
 Parse.Cloud.beforeSave('Test', () => {
