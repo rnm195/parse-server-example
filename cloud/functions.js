@@ -14,15 +14,18 @@ Parse.Cloud.define('getShoeMake', () => {
 return {name:'Asics' };
 });
 
-Parse.Cloud.define('getProfileInfo', req => {
-	var userId = req.params.userId;
-	var query =  new Parse.Query("User"); 
+Parse.Cloud.define('getProfileInfo', async (request) => {
+	let userId = request.params.userId;
+	let query =  new Parse.Query("User"); 
 	query.equalTo("objectId",userId);
-    const user = query.first();
-	var weight = user.get("weight");
-	var useMetric = user.get("useMetric");
-    var out_data = { weight:weight, useMetric:useMetric};
-	
+    const results = await query.find();
+    if(results.length === 0) throw new Error('No results found!');  
+    let user = results[0];  
+	let out_data = [];
+	out_data.push(
+	 { weight:user.get("weight"),
+	   useMetric:user.get("useMetric")
+});
     return out_data;
 },{
 	fields : ['userId']
