@@ -21,9 +21,9 @@ Parse.Cloud.define('getProfileInfo', req => {
     const user = query.first();
 	var weight = user.get("weight");
 	var useMetric = user.get("useMetric");
-
+    var out_data = { weight:weight, useMetric:useMetric};
 	
-return {[weight: weight, useMetric: useMetric] };
+    return out_data;
 },{
 	fields : ['userId']
 });
