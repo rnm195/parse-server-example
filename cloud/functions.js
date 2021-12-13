@@ -31,6 +31,23 @@ Parse.Cloud.define('getProfileInfo', async (request) => {
 	fields : ['userId']
 });
 
+Parse.Cloud.define('getProfileTest', async (request) => {
+	let userId = request.params.userId;
+	//let query =  new Parse.Query("User"); 
+	//query.equalTo("objectId",userId);
+    //const results = await query.find();
+    //if(results.length === 0) throw new Error('No results found!');  
+    //let user = results[0];  
+	let out_data = [];
+	//out_data.push(
+	// { weight:user.get("weight"),
+	//   useMetric:user.get("useMetric")
+//});
+    return out_data;
+},{
+	fields : ['userId']
+});
+
 Parse.Cloud.beforeSave('Test', () => {
   throw new Parse.Error(9001, 'Saving test objects is not available.');
 });
