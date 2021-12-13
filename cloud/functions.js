@@ -31,13 +31,49 @@ Parse.Cloud.define('getProfileInfo', async (request) => {
 	fields : ['userId']
 });
 
-Parse.Cloud.define('getProfileTest', async (request) => {
+Parse.Cloud.define('setProfileInfo', async (request) => {
+	let userId = request.params.userId;
+	let profileData = request.params.profileData;
+	let query =  new Parse.Query(Parse.User); 
+	query.equalTo("objectId",userId);
+    const results = await query.find();
+    if(results.length === 0) throw new Error('No results found!');  
+    let user = results[0]; 
+	user.Set("profileData",profileData);
+	let out_data = [];
+	out_data.push(
+	 { error:0,
+	   success:true
+});
+    return out_data;
+},{
+	fields : ['userId']
+});
+
+Parse.Cloud.define('getDashboard', async (request) => {
 	let userId = request.params.userId;
 	let query =  new Parse.Query(Parse.User); 
 	query.equalTo("objectId",userId);
-    let backs = await query.find();
-    if(backs.length === 0) throw new Error('No results found!');  
-    let user1 = backs[0];  
+    const results = await query.find();
+    if(results.length === 0) throw new Error('No results found!');  
+    let user = results[0];  
+	let out_data = [];
+	//out_data.push(
+	// { weight:user.get("weight"),
+	//   useMetric:user.get("useMetric")
+//});
+    return out_data;
+},{
+	fields : ['userId']
+});
+
+Parse.Cloud.define('getUser', async (request) => {
+	let userId = request.params.userId;
+	let query =  new Parse.Query(Parse.User); 
+	query.equalTo("objectId",userId);
+    const results = await query.find();
+    if(results.length === 0) throw new Error('No results found!');  
+    let user = results[0];  
 	let out_data = [];
 	//out_data.push(
 	// { weight:user.get("weight"),
