@@ -14,7 +14,7 @@ Parse.Cloud.define('getShoeMake', () => {
 return {name:'Asics' };
 });
 
-Parse.Cloud.define('getProfileInfo', req => {
+Parse.Cloud.define('getProfileInfo', async req => {
 	var userId = req.params.userId;
 	var query =  new Parse.Query("User"); 
 	query.equalTo("objectId",userId);
