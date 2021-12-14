@@ -32,7 +32,7 @@ Parse.Cloud.define('getShoeSize', () => {
   return out_data;
 });
 
-Parse.Cloud.define('getPodInfo', req () => {
+Parse.Cloud.define('getPodInfo', req => {
   let macAddress = req.params.macAdress;
   let out_data = [];
   	out_data.push(
@@ -43,7 +43,7 @@ Parse.Cloud.define('getPodInfo', req () => {
   return out_data;
 });
 
-Parse.Cloud.define('registerPod', req () => {
+Parse.Cloud.define('registerPod', req => {
   
   let userId = req.params.userId;
   let shoeId = req.params.shoeId;
