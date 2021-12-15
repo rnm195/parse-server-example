@@ -72,7 +72,8 @@ Parse.Cloud.define('getProfileInfo', async (request) => {
 	   useMetric:user.get("useMetric"),
 	   isFemale:user.get("isFemale"),
 	   name:user.get("name"),
-	   email:user.get("email")
+	   email:user.get("email"),
+	  height:user.get("height")
 });
     return out_data;
 },{
@@ -92,6 +93,7 @@ Parse.Cloud.define('setProfileInfo', async (request) => {
 	user.set("email",profileData.email);
 	user.set("useMetric",profileData.useMetric);
 	user.set("name",profileData.name);
+	user.set("height",profileData.height);
 	let out_data = [];
 	out_data.push(
 	 { error:0,
