@@ -39,7 +39,8 @@ Parse.Cloud.define('compatibilityCheck', (req) => {
   	out_data.push(
 	 { error:0,
 	   success:true,
-	   action:'noAction'
+	   //action:'noAction'
+	   action:'close'
 });
   return out_data;
 });
