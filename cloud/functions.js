@@ -32,15 +32,15 @@ Parse.Cloud.define('getShoeSize', () => {
   return out_data;
 });
 
-Parse.Cloud.define('compatibilityCheck', (req) => {
-	let deviceInfo = req.params.deviceInfo;
-	let appInfo = req.params.appInfo;
-  let out_data = [];
+//Parse.Cloud.define('compatibilityCheck', (req) => {
+//	let deviceInfo = req.params.deviceInfo;
+//	let appInfo = req.params.appInfo;
+//  let out_data = [];
  // 	out_data.push(
 //	 { action:"noAction"
 //});
-  return out_data;
-});
+//  return out_data;
+//});
 
 Parse.Cloud.define('getPodInfo', req => {
   let macAddress = req.params.macAddress;
