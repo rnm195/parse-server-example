@@ -69,7 +69,10 @@ Parse.Cloud.define('getProfileInfo', async (request) => {
 	let out_data = [];
 	out_data.push(
 	 { weight:user.get("weight"),
-	   useMetric:user.get("useMetric")
+	   useMetric:user.get("useMetric"),
+	   isFemale:user.get("isFemale"),
+	   name:user.get("name"),
+	   email:user.get("email")
 });
     return out_data;
 },{
@@ -84,7 +87,11 @@ Parse.Cloud.define('setProfileInfo', async (request) => {
     const results = await query.find();
     if(results.length === 0) throw new Error('No results found!');  
     let user = results[0]; 
-	user.set("profileData",profileData);
+	user.set("weight",profileData.weight);
+	user.set("isFemale",profileData.isFemale);
+	user.set("email",profileData.email);
+	user.set("useMetric",profileData.useMetric);
+	user.set("name",profileData.name);
 	let out_data = [];
 	out_data.push(
 	 { error:0,
@@ -142,6 +149,8 @@ Parse.Cloud.define('getUserStatistics', async (request) => {
 	//   useMetric:user.get("useMetric")
 //});
     return out_data;
+},{
+fields : ['userId']
 });
 
 Parse.Cloud.beforeSave('Test', () => {
