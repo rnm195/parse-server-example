@@ -63,7 +63,7 @@ Parse.Cloud.define('getProfileInfo', async (request) => {
 	let userId = request.params.userId;
 	let query =  new Parse.Query(Parse.User); 
 	query.equalTo("objectId",userId);
-    const results = await query.find();
+    const results = await query.find({useMasterKey: true});
     if(results.length === 0) throw new Error('No results found!');  
     let user = results[0];  
 	let out_data = [];
@@ -85,7 +85,7 @@ Parse.Cloud.define('setProfileInfo', async (request) => {
 	let profileData = request.params.data;
 	let query =  new Parse.Query(Parse.User); 
 	query.equalTo("objectId",userId);
-    const results = await query.find();
+    const results = await query.find({useMasterKey: true});
     if(results.length === 0) throw new Error('No results found!');  
     let user = results[0]; 
 	user.set("weight",profileData.weight);
