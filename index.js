@@ -33,7 +33,7 @@ const parseDashboard = new ParseDashboard({
       serverURL: 'https://pse-robin.herokuapp.com/parse',
       appId: process.env.APP_ID,
       masterKey: process.env.MASTER_KEY,
-      appName: 'Heroku Parse Ex. - PSE pg'
+      appName: 'HerokuParseExPG'
     }
   ],
   users: [
