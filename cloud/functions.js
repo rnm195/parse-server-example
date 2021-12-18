@@ -68,6 +68,31 @@ Parse.Cloud.define('registerPod', req => {
   userPod.set("initialDistance",initialDistance);
   userPod.set("userId",userId);
   userPod.save();
+  let out_data = [];
+  	out_data.push(
+	 { userPodShoeId:objectId
+});
+  
+  return out_data;
+});
+
+Parse.Cloud.define('uploadPodDataByProxy', req => {
+  
+  //let userId = req.params.userId;
+  let userPodShoeId = req.params.userPodShoeId;
+  //let shoeSize = req.params.shoeSize;
+  let mspVersion = req.params.mspVer;
+  let runData = req.params.hexData;
+  let podTime = req.params.PodTime;
+  let preserveOdometer = req.params.preserveOdometer;
+  const UserPod = Parse.Object.extend("PodData");
+  const userPod = new UserPod();
+  userPod.set("userPodShoeId",userPodShoeId);
+  userPod.set("mspVersion",mspVersion);
+  userPod.set("runData",runData);
+  userPod.set("podTime",podTime);
+  userPod.set("preserveOdometer",preserveOdometer);
+  userPod.save();
   //set these...
   let out_data = [];
   	out_data.push(
